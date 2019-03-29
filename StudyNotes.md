@@ -82,7 +82,32 @@ do minimal jobs). Hapi will enable us to build the API in a very rapid manner.
 
 ### Nodemon 
 
+The second dependency we installed was the good old nodemon. Nodemon restarts our server automatically
+whenever we make changes. It speeds up our development by a big factor. 
 
+
+In terms of text editor for this project, I will be using Visual Studio Code. 
+
+
+Setting up a Hapi server is very straightforward. Create an `index.js` file at the root directory with
+the contents of the following: 
+
+
+```javascript 
+const hapi = require('hapi')
+
+const server = hapi.server({
+	port: 4000, 
+	host: 'localhost'
+});
+
+const init = async () => {
+	await server.start();
+	console.log('Server running at: ${server.info.url}');
+};
+
+init();
+```
 
 
 

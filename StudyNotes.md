@@ -103,12 +103,20 @@ const server = hapi.server({
 
 const init = async () => {
 	await server.start();
-	console.log('Server running at: ${server.info.url}');
+	console.log(`Server running at: ${server.info.uri}`);
 };
 
 init();
 ```
 
+1. We require the `hapi` dependency
+2. Create a constant called server which creates a new instance of our Hapi server - as the arugments 
+   we pass an object with the port and the host options
+3. Finally, we create an **asynchronous** expression called init. Inside the init method, we have 
+   another asynchronous method which starts the server called `server.start()`. At the bottom we call
+   the `init()` function 
+
+We have covered asynchronous javascript in our TicTacToe Application. 
 
 
 

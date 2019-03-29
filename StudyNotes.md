@@ -116,7 +116,18 @@ init();
    another asynchronous method which starts the server called `server.start()`. At the bottom we call
    the `init()` function 
 
-We have covered asynchronous javascript in our TicTacToe Application. 
+If you are unsure about async/await , we have covered asynchronous javascript in our TicTacToe 
+Application. 
+
+
+### Running the Project 
+
+
+We can now run the project using the following command: 
+
+```
+node index.js
+```
 
 
 

@@ -25,6 +25,23 @@ team, frontend team, dev ops team, and so on)
 
 ## Introduction 
 
+We will be building a powerful, yet flexible, GraphQL API based on NodeJS with Swagger documentation
+powered by MongoDB. 
+
+
+
+The main backbone of this API will be Hapi.js. We will go over all the technology in substantial 
+detail. 
+
+
+At the end we will have a well documented GraphQL API as well as some awesome client integration 
+(React, Vue, Angular) 
+
+
+## Creating the Project 
+
+Inside our project directory we will initialize a Node project with the 
+
 
 
 

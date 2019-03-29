@@ -40,7 +40,52 @@ At the end we will have a well documented GraphQL API as well as some awesome cl
 
 ## Creating the Project 
 
-Inside our project directory we will initialize a Node project with the 
+Inside our project directory we will initialize a Node project with the `hapi` and `nodemon` 
+dependencies. To initialize a node project run the following command in the project directory: 
+
+```
+npm init
+```
+
+Then to add the `hapi` and `nodemon` dependencies run the following command: 
+
+
+```
+npm add hapi nodemon
+```
+
+
+
+
+<br><br> 
+
+### Hapi.JS
+
+Before moving on, let's go over what hapi.js is and what it can do for us. 
+
+<br>
+
+> hapi enables developers to focus on writing reusable application logic instead of spending time 
+> building infrastructure 
+
+<br> 
+
+Instead of going with the classic `Express` we are going to use Hapi. In a nutshell, Hapi is a Node 
+framework with simplicity and flexibility over **Boilerplate Code** - boilerplate code refers to
+sections of code that have  to be included in many places with little or no alteration. It is often 
+used when referring to languages that are considered verbose (programmer must write a lot of code to
+do minimal jobs). Hapi will enable us to build the API in a very rapid manner. 
+
+
+
+<br><br> 
+
+### Nodemon 
+
+
+
+
+
 
 
 

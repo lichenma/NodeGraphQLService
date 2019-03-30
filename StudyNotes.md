@@ -131,6 +131,51 @@ node index.js
 
 
 
+And we should see the following when we visit `localhost:4000` 
+
+```
+{"statusCode":404,"error":"Not Found","message":"Not Found"}
+```
+
+
+This is perfectly fine because the Hapi server expects a route and a handler. More on that in a bit. 
+First let's add the script to run our server with nodemon. Open `package.json` and edit the scripts 
+section. 
+
+
+```
+{
+  "name": "01-graphqlapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "hapi": "^18.1.0",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lichenma/NodeGraphQLService.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lichenma/NodeGraphQLService/issues"
+  },
+  "homepage": "https://github.com/lichenma/NodeGraphQLService#readme"
+}
+```
+
+
+## Routing 
+
+
+
 
 
 

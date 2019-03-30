@@ -175,6 +175,46 @@ section.
 ## Routing 
 
 
+Routing is very intuitive with Hapi. Let's say we hit `/` , there are three main components in play 
+here: 
+
+* What is the path - `path`
+* What is the HTTP method? Is it a `GET` - `POST` or something else? - `method`
+* What will happen if the route is reached? - `handler`
+
+
+Here is the code that we will add inside `index.js`: 
+
+
+```javascript 
+const init = async () => {
+	
+	server.route({
+		
+		method: 'GET',
+		path: '/', 
+		handler: function(request, reply) {
+			return `<h1>Hello World</h1>`; 
+		}
+	});
+
+	await server.start(); 
+	console.log(`Server running at: ${server.info.uri}`); 
+};
+
+init();
+```
+
+
+Inside the init method we attached a new method to our server called `route` with options passed as our
+argument. If we refresh our page we should see the return value of our root `handler`. This is great
+but there is so much more that we can do. 
+
+
+## Setting up our Database 
+
+
+
 
 
 

@@ -340,8 +340,19 @@ module.exports = mongoose.model('Painting', PaintingSchema);
 
 
 
+
+
 ## Fetching Paintings from the Database 
 
+First we need to import the `Painting` model to `index.js`: 
+
+```javascript
+const Painting = require('./models/Painting');
+```
+
+
+
+## Adding New Routes 
 
 
 

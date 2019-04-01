@@ -213,6 +213,25 @@ but there is so much more that we can do.
 
 ## Setting up our Database 
 
+Right now we are going to setup our database, we are going to use `mongodb` with `mongoose`. Writing 
+MongoDB validation, casting and and business logic boilerplate is incredibly tedious so that is where 
+`Mongoose` comes in to help out. 
+
+
+To add in mongoose we need to run this command: 
+
+```
+npm add mongoose
+```
+
+and add in mongoose into our `index.js`: 
+
+```javascript
+const hapi = require('hapi'); 
+const mongoose = require('mongoose'); 
+```
+
+
 
 
 

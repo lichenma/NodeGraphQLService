@@ -397,7 +397,20 @@ const init = async () => {
 
 ```
 
+Notice that we modified the route to be an array of objects instead of a single object. Also, we are
+using arrow functions. 
 
+<br> 
+
+**Code Breakdown** 
+
+* We created a `GET` method for `/api/v1/paintings` path. Inside the handler we are calling the 
+  mongoose schema. Mongoose hs built-in methods and the handy method we are using in this case is 
+  `find()` - this returns all paintings since we are not passing in any conditions to find by. 
+  Therefore it returns all records. 
+
+* We also crated a `POST` for the same path. The reason for that is we are following **REST** 
+  conventions. 
 
 
 

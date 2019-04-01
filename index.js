@@ -14,13 +14,36 @@ mongoose.connection.once('open', () => {
 });
 
 const init = async() => {
-    server.route({
+    server.route([
+      {
         method: 'GET',
         path: '/',
         handler: function(request, reply){
             return `<h1>Hello World</h1>`;
         }
-    });
+      },
+      {
+        method: 'GET',
+        path: '/api/v1/paintings',
+        handler: (request, reply) => {
+            return Painting.find();
+        } 
+      },
+      {
+        method: 'POST',
+        path: '/api/v1/paintings',
+        handler: (request, reply) => {
+            const {name, url, techniques} = req.payload;
+            const painting = new Painting({
+                name, 
+                url, 
+                techniques
+            });
+
+            return painting.save();
+        }
+      }
+    ]);
 
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);

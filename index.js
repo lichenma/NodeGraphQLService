@@ -1,5 +1,6 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
+const Painting = require('./models/Painting');
 
 const server = hapi.server({
     port: 4000,

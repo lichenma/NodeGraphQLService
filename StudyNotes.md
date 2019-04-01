@@ -352,7 +352,50 @@ const Painting = require('./models/Painting');
 
 
 
-## Adding New Routes 
+## Adding New Routes
+
+Ideally, we want to have to have URL endpoints reflectings our actions such as `/api/v1/paintings` - 
+`/api/v1/paintings/{id}` - and so on. 
+
+
+We are going to start with a `GET` and `POST` route. `GET` fetches all the paintings and `POST` adds a
+new painting. 
+
+```javascript 
+const init = async () => {
+	server.route([
+		{
+			method: 'GET', 
+			path: '/', 
+			handler: function(request, reply) {
+				return `<h1>Hello World</h1>`;
+			}
+		},
+		{
+			method: 'GET',
+			path: '/api/v1/paintings',
+			handler: (request, reply) => {
+				return Painting.find();
+			}
+		},
+		{
+			method: 'POST',
+			path: '/api/v1/paintings',
+			handler: (request, reply) => {
+				const {name, url, techniques} = req.payload;
+				const painting = new Painting({
+					name, 
+					url,
+					techniques
+				});
+
+				return painting.save();
+			}
+		}
+
+]};
+
+```
 
 
 

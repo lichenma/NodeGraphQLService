@@ -290,11 +290,57 @@ This should complete most of the setup stages and now we can dive into the cool 
 
 ## Creating Models 
 
-With mongoDB
+With mongoDB, we follow the convention of models - in other words, data modeling. 
+
+Data in MongoDB has a *flexible schema*. Unlike SQL databases where you must determine and declare a
+table's schema before inserting data, MongoDB's collections do not enforce document structure. This 
+flexibility facilitates the mapping of documents to an entity or an object. Each document can match the
+data fields of the represented entity, even if the data has substantial variation. In practice, 
+however, the documents in a collection share a similar structure. 
+
+
+Basically we just declare our schema for collections. Think of collections as tables in an SQL database
+. For this test application we are going to create a directory called models. Inside we will create a
+file `Painting.js` which is our painting mdoel. It will hold all data related to paintings. Here is how
+it will look: 
 
 
 
 
+```javascript 
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema; 
+
+/* 
+	Notice how there is no id provide to the schema - Mongoose will auto-assign an ID by default 
+	to all schemas 
+
+*/ 
+
+
+const PaintingSchema = new Schema({
+	name: String, 
+	url: String, 
+	techniques: [String]
+});
+
+module.exports = mongoose.model('Painting', PaintingSchema); 
+```
+
+
+**Code Breakdown**
+
+* We require the mongoose dependency 
+
+* We declare our `PaintingSchema` by calling the mongoose schema constructor and passing in the 
+  options. Notice how it is strongly typed: for example the `name` field can consist of a string and 
+  `techniques` consists of an array of strings 
+
+* We export the model and name it `Painting` 
+
+
+
+## Fetching Paintings from the Database 
 
 
 

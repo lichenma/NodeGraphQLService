@@ -211,6 +211,8 @@ argument. If we refresh our page we should see the return value of our root `han
 but there is so much more that we can do. 
 
 
+
+
 ## Setting up our Database 
 
 Right now we are going to setup our database, we are going to use `mongodb` with `mongoose`. Writing 
@@ -232,7 +234,63 @@ const mongoose = require('mongoose');
 ```
 
 
+The next ingredient related to our database is **mlab**, we used this provider in the `Worldly Goods` 
+web application as well. Instead of running mongo on our local computer, we are gonna use a cloud 
+provider like mlab. 
 
+
+Mlab is pretty good and simple to use, and best of all, it is free to use. There are more awesome 
+alternatives out there and we can try them out in another project. 
+
+
+Now log into mLab and create a new database - add a new database user as well. 
+
+
+
+
+## Connecting Mongoose with Mlab 
+
+Open `index.js` and add the following lines and credentials. We are basically just telling mongoose
+which database we want to connect to. 
+
+
+```javascript
+mongoose.connect('mongodb://<user>:<password>@<yourdatabase>.mlab.com:<port>/<database-name>');
+
+mongoose.connect('mongodb://example:password@ds123456.mlab.com:808080/graphql-api');
+
+mongoose.connection.once('open', () => {
+	console.log('connected to database');
+});
+```
+
+If everything went according to plan, we should now see `connected to database` in the console when 
+we run the application: 
+
+
+```
+
+$ npm run start
+
+> 01-graphqlapi@1.0.0 start C:\02-Projects\10-NodeJS\01-GraphQLAPI
+> nodemon index.js
+
+[nodemon] 1.18.10
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `node index.js`
+(node:19876) DeprecationWarning: current URL string parser is deprecated, and will be removed in a future version. To use the new parser, pass option { useNewUrlParser: true } to MongoClient.connect.
+Server running at: http://localhost:4000
+Connected to Database
+
+```
+
+This should complete most of the setup stages and now we can dive into the cool parts!
+
+
+## Creating Models 
+
+With mongoDB
 
 
 
@@ -248,3 +306,14 @@ const mongoose = require('mongoose');
 
 Credits go to the Lasn from **strilliant** - Thank you for providing an awesome tutorial that covers 
 this topic. 
+
+
+
+
+
+
+
+
+
+
+

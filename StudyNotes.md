@@ -422,6 +422,22 @@ added any paintings yet.
 
 
 
+Let's do that now using Postman - curl works as well and is very simple but I want to try and get used
+to working with Postman. 
+
+
+
+
+
+<br> 
+### Create Paintings using Postman 
+
+
+After opening up postman we want to send 
+
+
+
+
 
 ## Conclusion 
 

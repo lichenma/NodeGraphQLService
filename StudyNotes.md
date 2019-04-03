@@ -412,7 +412,13 @@ using arrow functions.
 * We also crated a `POST` for the same path. The reason for that is we are following **REST** 
   conventions. Let's deconstruct the route handler - remember in our `Painting` schema we declared 
   three fields: `name`, `url` and `techniques`. Here we are just accepting those arguments from the
-  request 
+  request (we will be doing that will postman/curl) and passing the request arguments to our mongoose
+  schema. After we are done passing arguments, we call the `save()` method on our new recor, which 
+  saves it to the mlab database 
+
+
+If we head over to `http://localhost:4000/api/v1/paintings` we should see an empty array - we have not
+added any paintings yet. 
 
 
 

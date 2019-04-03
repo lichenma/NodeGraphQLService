@@ -410,7 +410,9 @@ using arrow functions.
   Therefore it returns all records. 
 
 * We also crated a `POST` for the same path. The reason for that is we are following **REST** 
-  conventions. 
+  conventions. Let's deconstruct the route handler - remember in our `Painting` schema we declared 
+  three fields: `name`, `url` and `techniques`. Here we are just accepting those arguments from the
+  request 
 
 
 

@@ -464,13 +464,37 @@ following:
 
 
 
-## Implementing GraphQL 
+## Overview of GraphQL 
 
 
 What is graphQL anyways and why is it so popular right now? 
 
-> 
+> GraphQL's power comes from a simple idea - **instead of defining the structure of responses on the
+> server, the flexibility is given to the client.** Each request specifies what fields and 
+> relationships the client wants to get back, and GraphQL will construct a response tailored for this
+> particular request. The benefit: only one round-trip is needed to fetch all the complex data that 
+> might otherwise span multiple REST endpoints, and at the same time only return data that are actually
+> needed and nothing more
 
+
+GraphQL solves many pain points that traditional REST APIs might face. Some of them are: 
+* **Over-fetching** - there is data in the response that is unused
+* **Under-fetching** - you do not have enough data to a call to an endpoint leading the user to call a 
+  second endpoint 
+
+GraphQL has gotten so popular in part because people have good reason to believe it will replace REST
+entirely - just like REST replaced SOAP. 
+
+
+
+
+## Getting Started with GraphQL
+
+First we need to install the appropriate dependencies. 
+
+```
+npm add graphql apollo-server-hapi
+```
 
 
 

@@ -433,7 +433,48 @@ to working with Postman.
 ### Create Paintings using Postman 
 
 
-After opening up postman we want to send 
+After opening up postman, 
+
+* On the left we can see the method options. Change that to `POST` 
+* Next to the `POST` method we have the URL which is where we want to send our method to. 
+* On the right we can see the blue button which sends the request 
+* Below the URL bar we have the options. Click on the body and fill in the fields with the request 
+  body. For this example we will provide the following: 
+
+```
+{
+	"name": "Mona Lisa",
+	"url": "https://en.wikipedia.org/wiki/Mona_Lisa#/media/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+	"techniques": ["Portrait"]
+}
+```
+
+If we post the painting and then go to `http://localhost:4000/api/v1/paintings`, we should see the 
+following: 
+
+
+```
+[{"techniques":["portrait"],"_id":"5ca4ee4c1f5d0a0eec553d68","name":"Mona Lisa","_\_v":0}]
+```
+
+
+
+
+
+
+
+
+## Implementing GraphQL 
+
+
+What is graphQL anyways and why is it so popular right now? 
+
+> 
+
+
+
+
+
 
 
 

@@ -8,7 +8,7 @@ const Schema = mongoose.Schema;
 
 const PaintingSchema = new Schema({
     name: String, 
-    url: String, 
+    url: String,
     techniques: [String]
 });
 

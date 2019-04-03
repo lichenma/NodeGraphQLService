@@ -33,10 +33,10 @@ const init = async() => {
         method: 'POST',
         path: '/api/v1/paintings',
         handler: (request, reply) => {
-            const {name, url, techniques} = req.payload;
+            const {name, url, techniques} = request.payload;
             const painting = new Painting({
                 name, 
-                url, 
+                url,
                 techniques
             });
 

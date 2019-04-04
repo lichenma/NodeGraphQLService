@@ -119,14 +119,14 @@ init();
 If you are unsure about async/await , we have covered asynchronous javascript in our TicTacToe 
 Application. 
 
-
+<br>
 ### Running the Project 
 
 
 We can now run the project using the following command: 
 
 ```
-node index.js
+npm run start  or  node index.js
 ```
 
 
@@ -171,7 +171,7 @@ section.
 }
 ```
 
-
+<br><br>
 ## Routing 
 
 
@@ -212,7 +212,7 @@ but there is so much more that we can do.
 
 
 
-
+<br><br>
 ## Setting up our Database 
 
 Right now we are going to setup our database, we are going to use `mongodb` with `mongoose`. Writing 
@@ -247,7 +247,7 @@ Now log into mLab and create a new database - add a new database user as well.
 
 
 
-
+<br><br>
 ## Connecting Mongoose with Mlab 
 
 Open `index.js` and add the following lines and credentials. We are basically just telling mongoose
@@ -287,7 +287,7 @@ Connected to Database
 
 This should complete most of the setup stages and now we can dive into the cool parts!
 
-
+<br><br>
 ## Creating Models 
 
 With mongoDB, we follow the convention of models - in other words, data modeling. 
@@ -341,7 +341,7 @@ module.exports = mongoose.model('Painting', PaintingSchema);
 
 
 
-
+<br><br>
 ## Fetching Paintings from the Database 
 
 First we need to import the `Painting` model to `index.js`: 
@@ -351,7 +351,7 @@ const Painting = require('./models/Painting');
 ```
 
 
-
+<br><br>
 ## Adding New Routes
 
 Ideally, we want to have to have URL endpoints reflectings our actions such as `/api/v1/paintings` - 
@@ -463,7 +463,7 @@ following:
 
 
 
-
+<br><br>
 ## Overview of GraphQL 
 
 
@@ -487,7 +487,7 @@ entirely - just like REST replaced SOAP.
 
 
 
-
+<br><br>
 ## Getting Started with GraphQL
 
 First we need to install the appropriate dependencies. 
@@ -538,6 +538,7 @@ Let's examine this from top to bottom:
 * First we `require` the GraphQL library
 * At line 3 we are `deconstructing objects` from GraphQL
 
+<br><br>
 ```
 const { GraphQLObjectType, GraphQLString } = graphql 
 ```
@@ -548,9 +549,39 @@ this statement is the same as:
 const GraphQLObjectType = graphql.GraphQLObjectType
 const GraphQLObjectType = graphql.GraphQLString 
 ```
+<br><br>
 
 
 * Next up, we create a new GraphQLObjectType
+
+<br><br> 
+
+Almost all of the GraphQL types we will define will be object types. Object types have a name, but most
+importantly describe their fields. 
+
+Now as we can see, GraphQL is a statically typed language - which means that we have to declare all 
+types for our fields. For now our field types are all the type GraphQLString 
+
+This was our query for the paintings. Now we need to hook it up to our root query which the server will
+serve and from where it will fetch all data. 
+
+<br><br>
+
+
+
+## GraphQL Schema Language 
+
+There are many GraphQL server libraries available, in many different programming languages, and the 
+way you construct your schema will depend on the library you are using. However, there is also a 
+semi-official shorthand "schema language" which, although it doesn't support all GraphQL schema 
+features, provides a language agnostic way to describe schemas. 
+
+
+Typically you would not write your application's schema in the schema language (although the reference
+JavaScript implementation does allow you to, and it can be useful for prototyping) - it is useful in 
+our examples to use it. Translating it to your sever implementation's schema constructors should be 
+reasonably mechanical. 
+
 
 
 

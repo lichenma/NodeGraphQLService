@@ -539,9 +539,18 @@ Let's examine this from top to bottom:
 * At line 3 we are `deconstructing objects` from GraphQL
 
 ```
-const 
+const { GraphQLObjectType, GraphQLString } = graphql 
+```
+
+this statement is the same as: 
+
+```
+const GraphQLObjectType = graphql.GraphQLObjectType
+const GraphQLObjectType = graphql.GraphQLString 
+```
 
 
+* Next up, we create a new GraphQLObjectType
 
 
 

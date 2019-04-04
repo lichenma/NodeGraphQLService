@@ -496,8 +496,50 @@ First we need to install the appropriate dependencies.
 npm add graphql apollo-server-hapi
 ```
 
+Graphql is the main package for graphql and apollo-server-hapi is the glue between our Hapi server and 
+GraphQL. 
 
 
+<br> 
+
+Let's create a new folder called `graphql` and inside a file called `PaintingType.js` 
+
+
+```javascript
+const graphql = require('graphql'); 
+
+const { GraphQLObjectType, GraphQlString} = graphql;
+
+const PaintingType = new GraphQlObjectType({
+	
+	name: 'Painting',
+
+	fields: () => ({
+		
+		id: { type: GraphQLString }, 
+
+		name: { type: GraphQLString },
+
+		url: { type: GraphQLString },
+
+		techniques: { type: GraphQLString {
+
+	})
+});
+
+module.exports = PaintingType;
+```
+
+
+**Code Breakdown**
+
+Let's examine this from top to bottom: 
+
+* First we `require` the GraphQL library
+* At line 3 we are `deconstructing objects` from GraphQL
+
+```
+const 
 
 
 

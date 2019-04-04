@@ -583,6 +583,40 @@ our examples to use it. Translating it to your sever implementation's schema con
 reasonably mechanical. 
 
 
+**Schema Basics**
+
+A GraphQL schema is in essence the definition of a type system - how the data available to your client
+is related and what queries can be made to retrieve it. Additionally it describes the mutations 
+available (and the data they can return). 
+
+A schema is constructed of a set of object types - which are maps of named fields, each of which is 
+another type, either another object, or a scalar base type. You can think of the object types as the 
+nodes in the type system's "graph" and the scalar types as leaves (technically nodes of degree one). 
+
+A GraphQL schema is directly analogous to (and in many implementations actually is) a set of classes in
+an object-oriented programming language. Each class (or "object type") has a set of properties and
+methods (or "fields") that may be (or return) simple scalars or other class instances. Unsurprisingly,
+the analogy extends, and other object-oriented concepts, such as type interfaces and union types apply.
+
+When thinking about a schema, it is usefult to remember what a GraphQL query does: it starts at a 
+given operation, and walks a (tree - like) path through the type system, choosing one or more fields 
+from each object type that it encounters.
+
+
+
+
+
+<br><br>
+
+## Building the Root Query 
+
+
+
+
+
+
+
+
 
 
 

@@ -611,7 +611,22 @@ from each object type that it encounters.
 ## Building the Root Query 
 
 
+Let's create a file called `schema.js` inside our GraphQL folder. Here is what the file will look like:
 
+```javascript 
+const graphql = require('graphql');
+
+const PaintingType = require('./PaintingType');
+
+const {
+	GraphQLObjectType, 
+	GraphQLString, 
+	GraphQLSchema
+} = graphql; 
+
+const RootQuery = new GraphQLObjectType ({
+
+})
 
 
 

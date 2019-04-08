@@ -640,7 +640,62 @@ const RootQuery = new GraphQLObjectType ({
 			}
 		}
 	}
-})
+});
+```
+
+This is the root query that we will serve to the server. Notice that the fields section is more 
+convoluted now - we are passing the name of the field with the type `PaintingType` and `args` field. 
+
+<br> 
+
+> How would we find a specific painting? 
+
+<br>
+
+We need some kind of argument to sort by and in this case we are going to be using the `id`. 
+
+
+
+Next we have the `resolve` function which has two parameters, 
+* `parent`
+* `args` 
+
+
+
+
+<br><br> 
+
+
+Just to illustrate, GraphQL queries look like the following: 
+```javascript 
+{ 
+	painting(id: 20) {
+	
+		name
+
+	}
+}
+```
+
+
+
+The `painting` query is from `PaintingType.js` - notice how we pass an argument that is the `args` 
+parameter in the `resolve()` - and the parent would be used in more complex queries where you would
+have even more nesting going on. 
+
+
+
+Let's export our root query and pass it to the Hapi server. Notice that type `GraphQLSchema` - this is
+the root query/schema definition we pass to the server. 
+
+`schema.js`
+```javascript 
+module.exports = new GraphQLSchema({
+	
+	query: RootQuery
+
+});
+```
 
 
 

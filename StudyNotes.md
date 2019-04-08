@@ -321,7 +321,7 @@ const Schema = mongoose.Schema;
 const PaintingSchema = new Schema({
 	name: String, 
 	url: String, 
-	techniques: [String]
+	technique: String
 });
 
 module.exports = mongoose.model('Painting', PaintingSchema); 
@@ -382,11 +382,11 @@ const init = async () => {
 			method: 'POST',
 			path: '/api/v1/paintings',
 			handler: (request, reply) => {
-				const {name, url, techniques} = req.payload;
+				const {name, url, technique} = req.payload;
 				const painting = new Painting({
 					name, 
 					url,
-					techniques
+					technique
 				});
 
 				return painting.save();
@@ -411,9 +411,9 @@ using arrow functions.
 
 * We also crated a `POST` for the same path. The reason for that is we are following **REST** 
   conventions. Let's deconstruct the route handler - remember in our `Painting` schema we declared 
-  three fields: `name`, `url` and `techniques`. Here we are just accepting those arguments from the
+  three fields: `name`, `url` and `technique`. Here we are just accepting those arguments from the
   request (we will be doing that will postman/curl) and passing the request arguments to our mongoose
-  schema. After we are done passing arguments, we call the `save()` method on our new recor, which 
+  schema. After we are done passing arguments, we call the `save()` method on our new record, which 
   saves it to the mlab database 
 
 
@@ -445,7 +445,7 @@ After opening up postman,
 {
 	"name": "Mona Lisa",
 	"url": "https://en.wikipedia.org/wiki/Mona_Lisa#/media/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
-	"techniques": ["Portrait"]
+	"technique": "Portrait"
 }
 ```
 
@@ -454,7 +454,7 @@ following:
 
 
 ```
-[{"techniques":["portrait"],"_id":"5ca4ee4c1f5d0a0eec553d68","name":"Mona Lisa","_\_v":0}]
+[{"_id":"5cab5812f1a60a393c68eff1","name":"Mona Lisa","url":"http://testing.com","technique":"portrait","__v":0}]
 ```
 
 
@@ -522,7 +522,7 @@ const PaintingType = new GraphQlObjectType({
 
 		url: { type: GraphQLString },
 
-		techniques: { type: GraphQLString {
+		technique: { type: GraphQLString }
 
 	})
 });
@@ -625,7 +625,21 @@ const {
 } = graphql; 
 
 const RootQuery = new GraphQLObjectType ({
+	
+	name: 'RootQueryType',
+	fields: {
+		
+		painting: {
+			
+			type: PaintingType, 
+			args: { id: { type: GraphQLString } }, 
 
+			resolve(parent, args) {
+				
+				// logic for serving data 
+			}
+		}
+	}
 })
 
 

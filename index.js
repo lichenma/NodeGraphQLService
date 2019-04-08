@@ -1,6 +1,8 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
 const Painting = require('./models/Painting');
+const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
+const schema = require('./graphql/schema');
 
 const server = hapi.server({
     port: 4000,

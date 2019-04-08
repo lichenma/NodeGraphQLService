@@ -688,7 +688,6 @@ have even more nesting going on.
 Let's export our root query and pass it to the Hapi server. Notice that type `GraphQLSchema` - this is
 the root query/schema definition we pass to the server. 
 
-`schema.js`
 ```javascript 
 module.exports = new GraphQLSchema({
 	
@@ -697,8 +696,38 @@ module.exports = new GraphQLSchema({
 });
 ```
 
+<br> 
 
+Going back to our `index.js` - we `require` GraphQL packages and the `schema.js` 
 
+```javascript
+const { graphqlHapi, graphiqlHapi} = require('apollo-server-hapi');
+const schema = require('./graphql/schema');
+```
+
+<br> 
+
+Next up we need to register the hapi-graphql plugin: 
+
+```javascript 
+const init = async () => {
+	
+	await server.register({
+		
+		//inside the server.register({}) we pass our GraphQL configuration
+		
+		plugin: graphiqlHapi, 
+		options: {
+			path: '/graphiql',
+			graphiqlOptions: {
+				endpointURL: '/graphql'
+			},
+			route:{
+				cors: true
+			}
+	});
+}
+```
 
 
 

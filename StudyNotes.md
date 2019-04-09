@@ -717,7 +717,7 @@ const schema = require('./graphql/schema');
 <br> 
 
 
-Next up we need to register the hapi-graphiql plugin: 
+Next up we need to register the **hapi-graphiql** plugin: 
 
 ```javascript 
 const init = async () => {
@@ -745,6 +745,30 @@ Fairly simple right? We installed the `graphiql` plugin. Notice that it is graph
 
 
 
+
+<br><br> 
+
+Next let's register a new plugin: the **graphqlHapi** plugin which includes the schema we made earlier.
+
+```javascript
+await server. register ({
+	
+	plugin: graphqlHapi, 
+	
+	options: {
+		
+		path: '/graphql',
+		graphqlOptions: {
+			
+			schema
+		},
+
+		route: {
+			
+			cors: true
+		}
+	}
+});
 
 
 ## Conclusion 

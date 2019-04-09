@@ -33,6 +33,20 @@ const init = async () => {
     } 
 
   });
+
+  await server.register({
+    
+    plugin: graphqlHapi,
+    options: {
+      path: '/graphql',
+      graphiqlOptions: {
+        schema
+      },
+      route: {
+        cors: true
+      }
+    }
+  })  
 }
 
 /*

@@ -729,6 +729,10 @@ const init = async () => {
 }
 ```
 
+Fairly simple right? We installed the `graphiql` plugin. Notice that it is graphiql and not graphql.
+
+> Graphiql is the in-browser IDE for exploring GraphQL
+
 
 
 

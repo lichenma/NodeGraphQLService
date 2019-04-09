@@ -15,7 +15,31 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Database');
 });
 
+const init = async () => {
+  
+  await server.register({
+    
+    //inside the server.register({}) we pass our GraphQL configuration
+    
+    plugin: graphiqlHapi,
+    options: {
+      path: '/graphiql',
+      graphiqlOptions: {
+        endpointURL: '/graphql'
+      },
+      route: {
+        cors: true
+      }
+    } 
+
+  });
+}
+
+/*
+Implementation for REST api using HAPI 
+
 const init = async() => {
+
     server.route([
       {
         method: 'GET',
@@ -50,5 +74,6 @@ const init = async() => {
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
 };
+*/
 
 init();

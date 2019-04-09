@@ -707,7 +707,17 @@ const schema = require('./graphql/schema');
 
 <br> 
 
-Next up we need to register the hapi-graphql plugin: 
+
+
+
+
+
+## Registering Plugins 
+
+<br> 
+
+
+Next up we need to register the hapi-graphiql plugin: 
 
 ```javascript 
 const init = async () => {

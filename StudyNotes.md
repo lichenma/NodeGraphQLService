@@ -769,7 +769,7 @@ await server. register ({
 		}
 	}
 });
-
+```
 
 Currently I will be parking this project because of a plugin registration issue that appears to still 
 not be resolved. 

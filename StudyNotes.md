@@ -771,6 +771,10 @@ await server. register ({
 });
 
 
+Currently I will be parking this project because of a plugin registration issue that appears to still 
+not be resolved. 
+
+
 ## Conclusion 
 
 Credits go to the Lasn from **strilliant** - Thank you for providing an awesome tutorial that covers 

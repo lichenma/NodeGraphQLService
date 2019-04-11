@@ -4,6 +4,7 @@ const Painting = require('./models/Painting');
 const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
 const schema = require('./graphql/schema');
 
+
 const server = hapi.server({
     port: 4000,
     host: 'localhost'
@@ -15,12 +16,11 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Database');
 });
 
+
+
 const init = async () => {
   
   await server.register({
-    
-    //inside the server.register({}) we pass our GraphQL configuration
-    
     plugin: graphiqlHapi,
     options: {
       path: '/graphiql',
@@ -28,23 +28,23 @@ const init = async () => {
         endpointURL: '/graphql'
       },
       route: {
-        cors: true,
-      },
-    } ,
+        cors: true
+      }
+    }
   });
-
+  
+ 
   await server.register({
-    
     plugin: graphqlHapi,
     options: {
       path: '/graphql',
-      graphiqlOptions: {
+      graphqlOptions: {
         schema
       },
       route: {
-        cors: true,
-      },
-    },
+        cors: true
+      }
+    }
   }); 
   
   server.route([
@@ -80,47 +80,13 @@ const init = async () => {
 
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
-}
-
-/*
-Implementation for REST api using HAPI 
-
-const init = async() => {
-
-    server.route([
-      {
-        method: 'GET',
-        path: '/',
-        handler: function(request, reply){
-            return `<h1>Hello World</h1>`;
-        }
-      },
-      {
-        method: 'GET',
-        path: '/api/v1/paintings',
-        handler: (request, reply) => {
-            return Painting.find();
-        } 
-      },
-      {
-        method: 'POST',
-        path: '/api/v1/paintings',
-        handler: (request, reply) => {
-            const {name, url, technique} = request.payload;
-            const painting = new Painting({
-                name, 
-                url,
-                technique
-            });
-
-            return painting.save();
-        }
-      }
-    ]);
-
-    await server.start();
-    console.log(`Server running at: ${server.info.uri}`);
 };
-*/
+
+process.on('unhandledRejection', (err) =>{
+  if (err) {
+    console.log(err);
+    process.exit(1);
+  }
+});
 
 init();

@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 const PaintingType = require('./PaintingType');
-const PaintingType = require('./../models/Painting');
+const Painting = require('./../models/Painting');
 
 const {
     GraphQLObjectType, 
